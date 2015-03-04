@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>Pool Admin</h3></div>
+            <div class="panel-body">
+                <input type="text" ng-model="newpool.title">
+                <button class="btn btn-primary" type="button" ng-click="addPool()">Add Pool</button>
+                <div class="row">
+                    <a href="#/view" class="thumb"><button class="btn btn-primary" type="button">List</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" ng-repeat="pool in pools">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>{{pool.title}}</h3> <button class="btn btn-danger" type="button" ng-click="removePool(pool)">Remove
+            </button></div>
+            <div class="panel-body"><table class="table table-striped">
+                <tr ng-repeat='option in pool.pooloptions'>
+                    <td>{{ option.title }}</td>
+                    <td><button class="btn btn-danger" type="button" ng-click="removeOption(option,pool)">Remove
+                    </button></td>
+                </tr></table>
+                <tr><td>
+                    <input type="text" ng-model="newoption.title" name="title">
+                </td>
+                <td>
+                    <button class="btn btn-primary" type="button" ng-click="addOption(pool,newoption)">Add Opt</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</div>
